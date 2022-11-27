@@ -1,13 +1,16 @@
+import { useEffect } from "react"
 
 
 
-export default function Letras({ alfabeto, letterList, setLetterList, arrayWord, isLetterDisabled, setRandWord, underLined, setUnderLined,count,setCount }) {
+export default function Letras({ alfabeto, letterList, setLetterList, arrayWord, isLetterDisabled, setRandWord, underLined, setUnderLined,count,setCount,endGame}) {
         
     
 
     console.log(arrayWord)
     console.log(underLined)
     setRandWord(underLined)
+    
+    
     
 
 
@@ -24,46 +27,41 @@ export default function Letras({ alfabeto, letterList, setLetterList, arrayWord,
     
     
     function verifyLetter(el) {
-        console.log(el)
-        console.log(letterList)
         
         
-        
+
         setLetterList([...letterList, el])
-
-
-
-
 
         if (arrayWord.includes(el)) {
             const changeLetter = underLined.map((e, i) => (arrayWord[i] === el) ? e = el : e)
             setUnderLined(changeLetter)
+            endGame(changeLetter,count)
+        
             
             
             
         }
-        else{setCount(count+1)
+        else{
+            const count2 = count + 1
+            setCount(count2)
+            endGame(underLined,count2)
+
     
         }
         
-        if(count === 6){
-            alert("fazer ficar vermelho")
-        }
-        if(!underLined.includes("_")){
-            alert("fazer ficar verde")
-        }
+
     }
 
-
     
-    
+   
 
     function Letter(props) {
         return (
 
-            <button onClick={() => verifyLetter(props.l)} disabled={letterList.includes(props.l) ? true : isLetterDisabled} className="bt_letter" >{props.l}</button>
+            <button data-test="letter" onClick={() => verifyLetter(props.l)} disabled={letterList.includes(props.l) ? true : isLetterDisabled} className="bt_letter" >{props.l.toUpperCase()}</button>
 
         )
+        
     }
 
     

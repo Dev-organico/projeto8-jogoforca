@@ -9,27 +9,55 @@ function App() {
   const [count , setCount] = useState(0)
   const [randWord,setRandWord] = useState("")
   const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-  const [isDisabled,setIsDisabled] = useState(false)
   const [letterList,setLetterList] = useState([])
   const [arrayWord,setArrayWord] = useState([])
   const [isLetterDisabled ,setIsLetterDisabled] = useState(true)
   const [underLined,setUnderLined] = useState([])
+  const [changeColor,setChangeColor] = useState("")
+  let rand = ""
+
   
 
   function showWord(){
-    const rand = palavras[Math.floor(Math.random()*palavras.length)]
+    rand = palavras[Math.floor(Math.random()*palavras.length)]
     console.log(rand)
     const randArray = Array.from(rand)
     setArrayWord(Array.from(rand))
     const randArrayMap = randArray.map(()=> "_")
     setUnderLined(randArrayMap)
     setRandWord(randArrayMap)
-    setIsDisabled(true)
     setIsLetterDisabled(false)
+    setChangeColor("")
+    setCount(0)
+    setLetterList([])
+   
+    
+
     
 }
 
-  
+
+function endGame(undL,ct){
+
+  if (ct === 6 ){
+    setChangeColor("lostRed")
+    setIsLetterDisabled(true)
+    setLetterList([])
+    
+
+    
+  }
+  else if(!undL.includes("_") && ct !== 6){
+    
+    setChangeColor("winGreen")
+    setIsLetterDisabled(true)
+    setLetterList([])
+
+  }
+
+}
+
+
   
   return (
     <main>
@@ -37,10 +65,14 @@ function App() {
       <Jogo 
       count={count}
       randWord={randWord}
-      isDisabled={isDisabled}
       showWord={showWord}
       setRandWord={setRandWord}
       underLined={underLined}
+      changeColor={changeColor}
+      arrayWord={arrayWord}
+      rand={rand}
+      
+      
       
       />
       <Letras 
@@ -54,6 +86,9 @@ function App() {
       underLined={underLined}
       count={count}
       setCount={setCount}
+      setChangeColor={setChangeColor}
+      endGame={endGame}
+      
       
       
 

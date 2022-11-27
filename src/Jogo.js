@@ -1,10 +1,7 @@
 import { useState } from "react"
 
 
-export default function Jogo({count,randWord,isDisabled,showWord}){
-
-    
-    
+export default function Jogo({count,randWord,showWord,changeColor,arrayWord,rand,underlLined}){
 
   
 
@@ -15,11 +12,11 @@ export default function Jogo({count,randWord,isDisabled,showWord}){
 
 
                 <div className="image">
-                    <img src={`/assets/forca${count}.png`}/>
+                    <img data-test="game-image" src={`/assets/forca${count}.png`}/>
                 </div>
                 <div className="right_content">
-                    <button onClick={showWord} disabled={isDisabled} className="bt" type="button">Escolher Palavra</button>
-                    <p className="randWord">{randWord}</p>
+                    <button data-test="choose-word" onClick={showWord}  className="bt" type="button">Escolher Palavra</button>
+                    <p  data-test={rand} data-answer={underlLined} className={`randWord ${changeColor}`} >{count === 6?arrayWord.join(""):randWord}</p>
                 </div>
             </div>
 
