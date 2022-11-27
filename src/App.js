@@ -14,6 +14,9 @@ function App() {
   const [isLetterDisabled ,setIsLetterDisabled] = useState(true)
   const [underLined,setUnderLined] = useState([])
   const [changeColor,setChangeColor] = useState("")
+  const [wordOn,setWordOn] = useState(false)
+  const [isInputDisabled,setIsInputDisabled] = useState(true)
+  const [inputText , setInputText] = useState("")
   let rand = ""
 
   
@@ -30,6 +33,9 @@ function App() {
     setChangeColor("")
     setCount(0)
     setLetterList([])
+    setWordOn(false)
+    setIsInputDisabled(false)
+    
    
     
 
@@ -41,8 +47,8 @@ function endGame(undL,ct){
 
   if (ct === 6 ){
     setChangeColor("lostRed")
-    setIsLetterDisabled(true)
-    setLetterList([])
+    resetFunc()
+    setWordOn(true)
     
 
     
@@ -50,13 +56,18 @@ function endGame(undL,ct){
   else if(!undL.includes("_") && ct !== 6){
     
     setChangeColor("winGreen")
-    setIsLetterDisabled(true)
-    setLetterList([])
+    resetFunc()
 
   }
 
 }
 
+function resetFunc(){
+  setIsLetterDisabled(true)
+  setLetterList([])
+  setIsInputDisabled(true)
+
+}
 
   
   return (
@@ -71,6 +82,7 @@ function endGame(undL,ct){
       changeColor={changeColor}
       arrayWord={arrayWord}
       rand={rand}
+      wordOn={wordOn}
       
       
       
@@ -94,7 +106,18 @@ function endGame(undL,ct){
 
 
       />
-      <Chute />
+      <Chute
+      isInputDisabled={isInputDisabled}
+      inputText={inputText}
+      setInputText={setInputText}
+      arrayWord={arrayWord}
+      setChangeColor={setChangeColor}
+      setWordOn={setWordOn}
+      resetFunc={resetFunc}
+      
+      
+      
+      />
     </main>
    
   );
