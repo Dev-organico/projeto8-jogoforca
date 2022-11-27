@@ -1,4 +1,4 @@
-export default function Chute({ isInputDisabled, inputText, setInputText, arrayWord, setChangeColor, setWordOn, resetFunc }) {
+export default function Chute({ isInputDisabled, inputText, setInputText, arrayWord, setChangeColor, setWordOn, resetFunc ,setCount}) {
 
     function testGuess() {
 
@@ -10,6 +10,7 @@ export default function Chute({ isInputDisabled, inputText, setInputText, arrayW
         }
         else {
             setWordOn(true)
+            setCount(6)
             setChangeColor("lostRed")
             resetFunc()
 
@@ -25,6 +26,7 @@ export default function Chute({ isInputDisabled, inputText, setInputText, arrayW
         <div className="guess_input">
             <h1>Já sei a palavra!</h1>
             <input
+                disabled={isInputDisabled}
                 data-test="guess-input"
                 className="input_class"
                 type="text"

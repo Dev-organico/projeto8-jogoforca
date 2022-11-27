@@ -54,7 +54,7 @@ function endGame(undL,ct){
     
   }
   else if(!undL.includes("_") && ct !== 6){
-    
+    setWordOn(true)
     setChangeColor("winGreen")
     resetFunc()
 
@@ -114,6 +114,7 @@ function resetFunc(){
       setChangeColor={setChangeColor}
       setWordOn={setWordOn}
       resetFunc={resetFunc}
+      setCount={setCount}
       
       
       
