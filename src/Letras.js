@@ -6,8 +6,6 @@ export default function Letras({ alfabeto, letterList, setLetterList, arrayWord,
         
     
 
-    console.log(arrayWord)
-    console.log(underLined)
     setRandWord(underLined)
     
     
