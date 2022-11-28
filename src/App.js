@@ -23,7 +23,7 @@ function App() {
   
 
   function showWord(){
-    console.log(rand)
+
     const randArray = Array.from(rand)
     setArrayWord(Array.from(rand))
     const randArrayMap = randArray.map(()=> "_")
