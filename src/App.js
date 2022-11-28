@@ -17,13 +17,12 @@ function App() {
   const [wordOn,setWordOn] = useState(false)
   const [isInputDisabled,setIsInputDisabled] = useState(true)
   const [inputText , setInputText] = useState("")
-  const rand = palavras[Math.floor(Math.random()*palavras.length)]
   
 
   
 
   function showWord(){
-
+    const rand = palavras[Math.floor(Math.random()*palavras.length)]
     const randArray = Array.from(rand)
     setArrayWord(Array.from(rand))
     const randArrayMap = randArray.map(()=> "_")
