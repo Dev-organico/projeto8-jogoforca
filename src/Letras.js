@@ -58,7 +58,7 @@ export default function Letras({ alfabeto, letterList, setLetterList, arrayWord,
     function Letter(props) {
         return (
 
-            <button onClick={() => verifyLetter(props.l)} disabled={letterList.includes(props.l) ? true : isLetterDisabled} className="bt_letter" >{props.l.toUpperCase()}</button>
+            <button data-test="letter" onClick={() => verifyLetter(props.l)} disabled={letterList.includes(props.l) ? true : isLetterDisabled} className="bt_letter" >{props.l.toUpperCase()}</button>
 
         )
         
