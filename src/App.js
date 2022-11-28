@@ -18,6 +18,7 @@ function App() {
   const [isInputDisabled,setIsInputDisabled] = useState(true)
   const [inputText , setInputText] = useState("")
   let rand = ""
+  
 
   
 
@@ -81,7 +82,6 @@ function resetFunc(){
       underLined={underLined}
       changeColor={changeColor}
       arrayWord={arrayWord}
-      rand={rand}
       wordOn={wordOn}
       
       
@@ -100,6 +100,7 @@ function resetFunc(){
       setCount={setCount}
       setChangeColor={setChangeColor}
       endGame={endGame}
+      randWord={randWord}
       
       
       
