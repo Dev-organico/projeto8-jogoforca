@@ -82,7 +82,6 @@ function resetFunc(){
       changeColor={changeColor}
       arrayWord={arrayWord}
       wordOn={wordOn}
-      rand={rand}
       
       
       
