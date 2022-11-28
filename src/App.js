@@ -17,13 +17,12 @@ function App() {
   const [wordOn,setWordOn] = useState(false)
   const [isInputDisabled,setIsInputDisabled] = useState(true)
   const [inputText , setInputText] = useState("")
-  let rand = ""
+  const rand = palavras[Math.floor(Math.random()*palavras.length)]
   
 
   
 
   function showWord(){
-    rand = palavras[Math.floor(Math.random()*palavras.length)]
     console.log(rand)
     const randArray = Array.from(rand)
     setArrayWord(Array.from(rand))
